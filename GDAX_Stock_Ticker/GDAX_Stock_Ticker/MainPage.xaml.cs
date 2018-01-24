@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Timers;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +23,13 @@ namespace GDAX_Stock_Ticker
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        Timer timer = new Timer(1000);
+
         public MainPage()
         {
             this.InitializeComponent();
+            Clock clock = new Clock(timer);
+            clock.startClock();
         }
     }
 }
