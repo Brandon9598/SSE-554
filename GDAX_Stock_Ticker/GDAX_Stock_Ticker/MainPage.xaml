@@ -9,5 +9,11 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <TextBlock HorizontalAlignment="Center" Text="GDAX Stock Ticker" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Margin="0,50,0,0"/>
+        <TextBlock HorizontalAlignment="Center" Text="12:00:00 PM" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Margin="0,150,0,0"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Text="BTC/USD:" FontSize="36" Margin="0,0,40,0"/>
+            <TextBlock Text="$1,000.00" FontSize="36"/>
+        </StackPanel>
     </Grid>
 </Page>
