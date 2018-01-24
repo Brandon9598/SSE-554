@@ -23,13 +23,22 @@ namespace GDAX_Stock_Ticker
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        Timer timer = new Timer(1000);
+        DispatcherTimer Timer = new DispatcherTimer();
 
         public MainPage()
         {
             this.InitializeComponent();
-            Clock clock = new Clock(timer);
-            clock.startClock();
+            DataContext = this;
+            Timer.Tick += Timer_Tick;
+            Timer.Interval = new TimeSpan(0, 0, 1);
+            Timer.Start();
+
+            // Asyncrhonously start GDAX Bitcoin monitor
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            timeLabel.Text = DateTime.Now.ToString("h:mm:ss tt");
         }
     }
 }
