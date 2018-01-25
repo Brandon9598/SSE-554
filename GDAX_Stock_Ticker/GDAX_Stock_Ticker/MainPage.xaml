@@ -13,7 +13,7 @@
         <TextBlock x:Name="timeLabel" HorizontalAlignment="Center" Text="00:00:00" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Margin="0,150,0,0"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="BTC/USD:" FontSize="36" Margin="0,0,40,0"/>
-            <TextBlock Text="$1,000.00" FontSize="36"/>
+            <TextBlock x:Name="priceLabel" Text="$1,000.00" FontSize="36" IsColorFontEnabled="True"/>
         </StackPanel>
         <Button Content="Save Prices" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,250,0,0" FontSize="36"/>
     </Grid>

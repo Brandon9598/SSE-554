@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Timers;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -24,6 +25,8 @@ namespace GDAX_Stock_Ticker
     public sealed partial class MainPage : Page
     {
         DispatcherTimer Timer = new DispatcherTimer();
+        GDAX_Monitor gdax_Monitor = new GDAX_Monitor();
+        decimal prevPrice = 0;
 
         public MainPage()
         {
@@ -32,13 +35,30 @@ namespace GDAX_Stock_Ticker
             Timer.Tick += Timer_Tick;
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
+        }
 
-            // Asyncrhonously start GDAX Bitcoin monitor
+        private void updatePrice()
+        {
+            decimal currentPrice = gdax_Monitor.GetBitCoinValue();
+            if(currentPrice > prevPrice)
+            {
+                priceLabel.Foreground = new SolidColorBrush(Colors.Green);
+            }
+            else if(currentPrice == prevPrice){
+                priceLabel.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else
+            {
+                priceLabel.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            prevPrice = currentPrice;
+            priceLabel.Text = gdax_Monitor.GetBitCoinValue().ToString("C");
         }
 
         private void Timer_Tick(object sender, object e)
         {
             timeLabel.Text = DateTime.Now.ToString("h:mm:ss tt");
+            updatePrice();
         }
     }
 }
