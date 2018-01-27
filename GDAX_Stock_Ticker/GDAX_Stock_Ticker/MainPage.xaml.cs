@@ -26,6 +26,8 @@ namespace GDAX_Stock_Ticker
     {
         DispatcherTimer Timer = new DispatcherTimer();
         GDAX_Monitor gdax_Monitor = new GDAX_Monitor();
+        CryptoRecorder cryptoRecorder = new CryptoRecorder();
+
         decimal btcPrevPrice = 0;
         decimal ethPrevPrice = 0;
 
@@ -36,6 +38,7 @@ namespace GDAX_Stock_Ticker
             Timer.Tick += Timer_Tick;
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
+            cryptoRecorder.saveBTC();
         }
 
         private void updateBTCPrice()
