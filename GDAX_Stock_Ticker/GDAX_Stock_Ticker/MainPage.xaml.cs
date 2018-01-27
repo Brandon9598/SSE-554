@@ -26,7 +26,8 @@ namespace GDAX_Stock_Ticker
     {
         DispatcherTimer Timer = new DispatcherTimer();
         GDAX_Monitor gdax_Monitor = new GDAX_Monitor();
-        decimal prevPrice = 0;
+        decimal btcPrevPrice = 0;
+        decimal ethPrevPrice = 0;
 
         public MainPage()
         {
@@ -37,28 +38,49 @@ namespace GDAX_Stock_Ticker
             Timer.Start();
         }
 
-        private void updatePrice()
+        private void updateBTCPrice()
         {
-            decimal currentPrice = gdax_Monitor.GetBitCoinValue();
-            if(currentPrice > prevPrice)
+            decimal btcCurrentPrice = gdax_Monitor.GetBitCoinValue();
+            if(btcCurrentPrice > btcPrevPrice)
             {
-                priceLabel.Foreground = new SolidColorBrush(Colors.Green);
+                btcPriceLabel.Foreground = new SolidColorBrush(Colors.Green);
             }
-            else if(currentPrice == prevPrice){
-                priceLabel.Foreground = new SolidColorBrush(Colors.Black);
+            else if(btcCurrentPrice == btcPrevPrice)
+            {
+                btcPriceLabel.Foreground = new SolidColorBrush(Colors.Black);
             }
             else
             {
-                priceLabel.Foreground = new SolidColorBrush(Colors.Red);
+                btcPriceLabel.Foreground = new SolidColorBrush(Colors.Red);
             }
-            prevPrice = currentPrice;
-            priceLabel.Text = gdax_Monitor.GetBitCoinValue().ToString("C");
+            btcPrevPrice = btcCurrentPrice;
+            btcPriceLabel.Text = btcCurrentPrice.ToString("C");
+        }
+
+        private async void updateETHPriceAsync()
+        {
+            decimal ethCurrentPrice = await gdax_Monitor.GetEtheriumValueAsync();
+            if(ethCurrentPrice > ethPrevPrice)
+            {
+                ethPriceLabel.Foreground = new SolidColorBrush(Colors.Green);
+            }
+            else if(ethCurrentPrice == ethPrevPrice)
+            {
+                ethPriceLabel.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else
+            {
+                ethPriceLabel.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            ethPrevPrice = ethCurrentPrice;
+            ethPriceLabel.Text = ethCurrentPrice.ToString("C");
         }
 
         private void Timer_Tick(object sender, object e)
         {
             timeLabel.Text = DateTime.Now.ToString("h:mm:ss tt");
-            updatePrice();
+            updateBTCPrice();
+            updateETHPriceAsync();
         }
     }
 }
