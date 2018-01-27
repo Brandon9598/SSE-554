@@ -28,6 +28,10 @@ namespace GDAX_Stock_Ticker
         GDAX_Monitor gdax_Monitor = new GDAX_Monitor();
         CryptoRecorder cryptoRecorder = new CryptoRecorder();
 
+        private List<PricePoint> btcValueList;
+        private List<PricePoint> ethValueList;
+
+
         decimal btcPrevPrice = 0;
         decimal ethPrevPrice = 0;
 
@@ -57,6 +61,7 @@ namespace GDAX_Stock_Ticker
                 btcPriceLabel.Foreground = new SolidColorBrush(Colors.Red);
             }
             btcPrevPrice = btcCurrentPrice;
+            btcValueList.Add(new PricePoint(DateTime.Now.ToString("h:mm:ss tt"), btcCurrentPrice));
             btcPriceLabel.Text = btcCurrentPrice.ToString("C");
         }
 
@@ -76,6 +81,7 @@ namespace GDAX_Stock_Ticker
                 ethPriceLabel.Foreground = new SolidColorBrush(Colors.Red);
             }
             ethPrevPrice = ethCurrentPrice;
+            ethValueList.Add(new PricePoint(DateTime.Now.ToString("h:mm:ss tt"), ethCurrentPrice));
             ethPriceLabel.Text = ethCurrentPrice.ToString("C");
         }
 
@@ -84,6 +90,14 @@ namespace GDAX_Stock_Ticker
             timeLabel.Text = DateTime.Now.ToString("h:mm:ss tt");
             updateBTCPrice();
             updateETHPriceAsync();
+        }
+
+        private void savePrices_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO: Conert BTC and ETH list to csv files
+
+            //TODO: save the files
+
         }
     }
 }

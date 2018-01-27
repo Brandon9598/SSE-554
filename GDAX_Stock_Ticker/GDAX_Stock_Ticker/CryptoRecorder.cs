@@ -16,16 +16,11 @@ namespace GDAX_Stock_Ticker
                 Windows.Storage.CreationCollisionOption.ReplaceExisting);
             btcFile = await storageFolder.GetFileAsync("btcValues.csv");
             await Windows.Storage.FileIO.WriteTextAsync(btcFile, "Swift as a shadow");
+        }
 
-            //var saver = new Windows.Storage.Pickers.FileSavePicker();
-            //Windows.Storage.StorageFile btcFile = await saver.PickSaveFileAsync();
-            //saver.FileTypeChoices.Add("Comma Separated File", new List<string>() { ".csv" });
-            //saver.SuggestedFileName = "New Document";
-            //if (btcFile != null)
-            //{
-            //    Windows.Storage.CachedFileManager.DeferUpdates(btcFile);
-            //    await Windows.Storage.FileIO.WriteTextAsync(btcFile, btcFile.Name);
-            //}
+        public async void convertTOCSV()
+        {
+
         }
     }
 }
