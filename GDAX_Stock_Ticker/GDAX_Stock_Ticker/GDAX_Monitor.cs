@@ -48,13 +48,13 @@ namespace GDAX_Stock_Ticker
                 return 0;
             }
         }
-
-        private decimal convertToUSD(string btcValue)
+        
+        public decimal convertToUSD(string btcValue)
         {
             return USD_CONST / decimal.Parse(btcValue);
         }
 
-        public static decimal getETHValue(string htmlString)
+        public decimal getETHValue(string htmlString)
         {
             char delimeter1 = ':';
             char delimeter2 = ',';

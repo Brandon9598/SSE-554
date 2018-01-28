@@ -46,18 +46,7 @@ namespace GDAX_Stock_Ticker
         private void updateBTCPrice()
         {
             decimal btcCurrentPrice = gdax_Monitor.GetBitCoinValue();
-            if(btcCurrentPrice > btcPrevPrice)
-            {
-                btcPriceLabel.Foreground = new SolidColorBrush(Colors.Green);
-            }
-            else if(btcCurrentPrice == btcPrevPrice)
-            {
-                btcPriceLabel.Foreground = new SolidColorBrush(Colors.Black);
-            }
-            else
-            {
-                btcPriceLabel.Foreground = new SolidColorBrush(Colors.Red);
-            }
+            btcPriceLabel.Foreground = new SolidColorBrush(ColorPicker.valueToColor(btcPrevPrice, btcCurrentPrice));
             btcPrevPrice = btcCurrentPrice;
             PricePoint pricepoint = new PricePoint(DateTime.Now.ToString("h:mm:ss tt"), btcCurrentPrice);
             btcValueList.Add(pricepoint);
@@ -67,18 +56,7 @@ namespace GDAX_Stock_Ticker
         private async void updateETHPriceAsync()
         {
             decimal ethCurrentPrice = await gdax_Monitor.GetEtheriumValueAsync();
-            if(ethCurrentPrice > ethPrevPrice)
-            {
-                ethPriceLabel.Foreground = new SolidColorBrush(Colors.Green);
-            }
-            else if(ethCurrentPrice == ethPrevPrice)
-            {
-                ethPriceLabel.Foreground = new SolidColorBrush(Colors.Black);
-            }
-            else
-            {
-                ethPriceLabel.Foreground = new SolidColorBrush(Colors.Red);
-            }
+            ethPriceLabel.Foreground = new SolidColorBrush(ColorPicker.valueToColor(ethPrevPrice, ethCurrentPrice));
             ethPrevPrice = ethCurrentPrice;
             PricePoint pricepoint = new PricePoint(DateTime.Now.ToString("h:mm:ss tt"), ethCurrentPrice);
             ethValueList.Add(pricepoint);

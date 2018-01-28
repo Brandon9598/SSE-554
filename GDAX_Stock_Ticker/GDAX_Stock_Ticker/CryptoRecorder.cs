@@ -26,7 +26,7 @@ namespace GDAX_Stock_Ticker
             await Windows.Storage.FileIO.WriteTextAsync(btcFile, textToWrite);
         }
 
-        private string CreateCSV(List<PricePoint> timedPrices)
+        public string CreateCSV(List<PricePoint> timedPrices)
         {
             string csv = "";
             foreach (PricePoint pricePoint in timedPrices)
