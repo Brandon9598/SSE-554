@@ -26,10 +26,9 @@ namespace GDAX_Stock_Ticker
     {
         DispatcherTimer Timer = new DispatcherTimer();
         GDAX_Monitor gdax_Monitor = new GDAX_Monitor();
-        CryptoRecorder cryptoRecorder = new CryptoRecorder();
 
-        private List<PricePoint> btcValueList;
-        private List<PricePoint> ethValueList;
+        private List<PricePoint> btcValueList = new List<PricePoint>();
+        private List<PricePoint> ethValueList = new List<PricePoint>();
 
 
         decimal btcPrevPrice = 0;
@@ -42,7 +41,6 @@ namespace GDAX_Stock_Ticker
             Timer.Tick += Timer_Tick;
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
-            cryptoRecorder.saveBTC();
         }
 
         private void updateBTCPrice()
@@ -61,7 +59,8 @@ namespace GDAX_Stock_Ticker
                 btcPriceLabel.Foreground = new SolidColorBrush(Colors.Red);
             }
             btcPrevPrice = btcCurrentPrice;
-            btcValueList.Add(new PricePoint(DateTime.Now.ToString("h:mm:ss tt"), btcCurrentPrice));
+            PricePoint pricepoint = new PricePoint(DateTime.Now.ToString("h:mm:ss tt"), btcCurrentPrice);
+            btcValueList.Add(pricepoint);
             btcPriceLabel.Text = btcCurrentPrice.ToString("C");
         }
 
@@ -81,7 +80,8 @@ namespace GDAX_Stock_Ticker
                 ethPriceLabel.Foreground = new SolidColorBrush(Colors.Red);
             }
             ethPrevPrice = ethCurrentPrice;
-            ethValueList.Add(new PricePoint(DateTime.Now.ToString("h:mm:ss tt"), ethCurrentPrice));
+            PricePoint pricepoint = new PricePoint(DateTime.Now.ToString("h:mm:ss tt"), ethCurrentPrice);
+            ethValueList.Add(pricepoint);
             ethPriceLabel.Text = ethCurrentPrice.ToString("C");
         }
 
@@ -94,10 +94,11 @@ namespace GDAX_Stock_Ticker
 
         private void savePrices_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Conert BTC and ETH list to csv files
-
-            //TODO: save the files
-
+            //TODO: Convert BTC and ETH list to csv files
+            CryptoRecorder ethRecorder = new CryptoRecorder(ethValueList);
+            ethRecorder.saveCurrency("ethValues.csv");
+            CryptoRecorder btcRecorder = new CryptoRecorder(btcValueList);
+            btcRecorder.saveCurrency("btcValues.csv");
         }
     }
 }

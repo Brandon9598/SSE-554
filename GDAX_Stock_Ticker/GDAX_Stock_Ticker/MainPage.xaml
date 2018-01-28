@@ -21,6 +21,6 @@
             <TextBlock x:Name="ethPriceLabel" Text="$1,000.00" FontSize="36" IsColorFontEnabled="True"/>
         </StackPanel>
         
-        <Button Content="Save Prices" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,250,0,0" FontSize="36"/>
+        <Button Content="Save Prices" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,250,0,0" FontSize="36" Click="savePrices_Click"/>
     </Grid>
 </Page>

@@ -9,18 +9,37 @@ namespace GDAX_Stock_Ticker
 {
     class CryptoRecorder
     {
-        public async void saveBTC()
+        private List<PricePoint> cryptoPrices;
+
+        public CryptoRecorder(List<PricePoint> cryptoPrices)
         {
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile btcFile = await storageFolder.CreateFileAsync("btcValues.csv",
-                Windows.Storage.CreationCollisionOption.ReplaceExisting);
-            btcFile = await storageFolder.GetFileAsync("btcValues.csv");
-            await Windows.Storage.FileIO.WriteTextAsync(btcFile, "Swift as a shadow");
+            this.cryptoPrices = cryptoPrices;
         }
 
-        public async void convertTOCSV()
+        public async void saveCurrency(string filename)
         {
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile btcFile = await storageFolder.CreateFileAsync(filename,
+                Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            btcFile = await storageFolder.GetFileAsync(filename);
+            string textToWrite = CreateCSV(cryptoPrices);
+            await Windows.Storage.FileIO.WriteTextAsync(btcFile, textToWrite);
+        }
 
+        private string CreateCSV(List<PricePoint> timedPrices)
+        {
+            string csv = "";
+            foreach (PricePoint pricePoint in timedPrices)
+            {
+                csv += pricePoint.time + "," + pricePoint.price + "\n";
+            }
+            return csv;
+        }
+
+        public List<PricePoint> CryptoPrices
+        {
+            get { return cryptoPrices; }
+            set { cryptoPrices = value; }
         }
     }
 }
