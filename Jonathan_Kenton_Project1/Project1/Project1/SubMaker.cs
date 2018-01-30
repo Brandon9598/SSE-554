@@ -5,7 +5,6 @@ namespace Project1
 {
     public partial class SubMaker : Form
     {
-        private string CurrentSub;
         private string SubSizeChoice = string.Empty;
         private string MeatChoice = string.Empty;
         private string CheeseChoice = string.Empty;
@@ -19,19 +18,31 @@ namespace Project1
 
         private void SubMaker_Load(object sender, EventArgs e)
         {
-            NameAddressBox.Text = "Your Delivery Information" + Environment.NewLine
-                + "-------------------------------------" + Environment.NewLine
+            SubMakerDisplay.Text += Environment.NewLine
                 + "Name : " + Form1.userInfo.UserName + Environment.NewLine
                 + "Street Address : " + Form1.userInfo.StreetAddress + Environment.NewLine
-                + "City/State/Zip : " + Form1.userInfo.CityStateZip;
+                + "City/State/Zip : " + Form1.userInfo.CityStateZip
+                + "-------------------------------------------------------------------" + Environment.NewLine;
         }
 
         private void SubStringSetter()
         {
-            SubMakerDisplay.Text += Environment.NewLine 
+            SubMakerDisplay.Text = Environment.NewLine
+                + "Name : " + Form1.userInfo.UserName + Environment.NewLine
+                + "Street Address : " + Form1.userInfo.StreetAddress + Environment.NewLine
+                + "City/State/Zip : " + Form1.userInfo.CityStateZip
+                + "-------------------------------------------------------------------" + Environment.NewLine;
+
+            SubMakerDisplay.Text += "Sub 1:" + Environment.NewLine 
+                + "-------------------------------------------------------------------" + Environment.NewLine 
                 + "Sub Size : " + SubSizeChoice + Environment.NewLine
-                + " Meat : " + MeatChoice + Environment.NewLine
+                + "Meat : " + MeatChoice + Environment.NewLine
                 + "Cheese : " + CheeseChoice + Environment.NewLine;
+        }
+
+        private void AddAnotherSub()
+        {
+
         }
 
         private void MakeBoxesEnabled()
@@ -43,18 +54,25 @@ namespace Project1
             ExtrasBox.Enabled = true;
         }
 
-        private void MakeBoxesDisabled()
+        private void CheckIfAnySubSizeSelected()
         {
-            MeatsBox.Enabled = false;
-            CheeseBox.Enabled = false;
-            VeggieBox.Enabled = false;
-            SaucesSeasonBox.Enabled = false;
-            ExtrasBox.Enabled = false;
+            if( KidSizeRadio.Checked == false 
+                && SixInRadio.Checked == false
+                && EightInRadio.Checked == false
+                && TwelveInRadio.Checked == false)
+            {
+                MeatsBox.Enabled = false;
+                CheeseBox.Enabled = false;
+                VeggieBox.Enabled = false;
+                SaucesSeasonBox.Enabled = false;
+                ExtrasBox.Enabled = false;
+            }
+                    
         }
 
         private void KidSizeRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if(KidSizeRadio.Checked == true)
+            if (KidSizeRadio.Checked == true)
             {
                 SixInRadio.Checked = false;
                 EightInRadio.Checked = false;
@@ -63,6 +81,8 @@ namespace Project1
                 SubStringSetter();
                 MakeBoxesEnabled();
             }
+            else
+                CheckIfAnySubSizeSelected();
         }
 
         private void SixInRadio_CheckedChanged(object sender, EventArgs e)
@@ -76,6 +96,8 @@ namespace Project1
                 SubStringSetter();
                 MakeBoxesEnabled();
             }
+            else
+                CheckIfAnySubSizeSelected();
         }
 
         private void EightInRadio_CheckedChanged(object sender, EventArgs e)
@@ -89,6 +111,9 @@ namespace Project1
                 SubStringSetter();
                 MakeBoxesEnabled();
             }
+            else
+                CheckIfAnySubSizeSelected();
+
         }
 
         private void TwelveInRadio_CheckedChanged(object sender, EventArgs e)
@@ -102,6 +127,8 @@ namespace Project1
                 SubStringSetter();
                 MakeBoxesEnabled();
             }
+            else
+                CheckIfAnySubSizeSelected();
         }
 
         private void HamRadio_CheckedChanged(object sender, EventArgs e)
@@ -215,6 +242,11 @@ namespace Project1
                 CheeseChoice = AmericanRadio.Text;
                 SubStringSetter();
             }
+        }
+
+        private void VeggiesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

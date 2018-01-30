@@ -35,7 +35,6 @@ namespace Project1
             this.EightInRadio = new System.Windows.Forms.RadioButton();
             this.SixInRadio = new System.Windows.Forms.RadioButton();
             this.KidSizeRadio = new System.Windows.Forms.RadioButton();
-            this.NameAddressBox = new System.Windows.Forms.TextBox();
             this.MeatsBox = new System.Windows.Forms.GroupBox();
             this.RoastedChickenRadio = new System.Windows.Forms.RadioButton();
             this.TurkeyRadio = new System.Windows.Forms.RadioButton();
@@ -54,12 +53,15 @@ namespace Project1
             this.SuacesSeasonsList = new System.Windows.Forms.CheckedListBox();
             this.VeggieBox = new System.Windows.Forms.GroupBox();
             this.VeggiesList = new System.Windows.Forms.CheckedListBox();
+            this.MakeYourOwnSub = new System.Windows.Forms.GroupBox();
+            this.YourOrderBox = new System.Windows.Forms.GroupBox();
             this.SubSizeBox.SuspendLayout();
             this.MeatsBox.SuspendLayout();
             this.ExtrasBox.SuspendLayout();
             this.CheeseBox.SuspendLayout();
             this.SaucesSeasonBox.SuspendLayout();
             this.VeggieBox.SuspendLayout();
+            this.YourOrderBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // SubSizeBox
@@ -68,7 +70,7 @@ namespace Project1
             this.SubSizeBox.Controls.Add(this.EightInRadio);
             this.SubSizeBox.Controls.Add(this.SixInRadio);
             this.SubSizeBox.Controls.Add(this.KidSizeRadio);
-            this.SubSizeBox.Location = new System.Drawing.Point(12, 12);
+            this.SubSizeBox.Location = new System.Drawing.Point(36, 45);
             this.SubSizeBox.Name = "SubSizeBox";
             this.SubSizeBox.Size = new System.Drawing.Size(210, 225);
             this.SubSizeBox.TabIndex = 0;
@@ -123,29 +125,19 @@ namespace Project1
             this.KidSizeRadio.UseVisualStyleBackColor = true;
             this.KidSizeRadio.CheckedChanged += new System.EventHandler(this.KidSizeRadio_CheckedChanged);
             // 
-            // NameAddressBox
-            // 
-            this.NameAddressBox.Location = new System.Drawing.Point(964, 12);
-            this.NameAddressBox.Multiline = true;
-            this.NameAddressBox.Name = "NameAddressBox";
-            this.NameAddressBox.ReadOnly = true;
-            this.NameAddressBox.Size = new System.Drawing.Size(388, 205);
-            this.NameAddressBox.TabIndex = 1;
-            this.NameAddressBox.Text = "\r\n";
-            // 
             // MeatsBox
             // 
             this.MeatsBox.Controls.Add(this.RoastedChickenRadio);
             this.MeatsBox.Controls.Add(this.TurkeyRadio);
             this.MeatsBox.Controls.Add(this.RoastBeefRadio);
             this.MeatsBox.Controls.Add(this.HamRadio);
-            this.MeatsBox.Location = new System.Drawing.Point(228, 12);
+            this.MeatsBox.Enabled = false;
+            this.MeatsBox.Location = new System.Drawing.Point(252, 45);
             this.MeatsBox.Name = "MeatsBox";
             this.MeatsBox.Size = new System.Drawing.Size(210, 225);
             this.MeatsBox.TabIndex = 2;
             this.MeatsBox.TabStop = false;
             this.MeatsBox.Text = "Meats";
-            this.MeatsBox.Enabled = false;
             // 
             // RoastedChickenRadio
             // 
@@ -198,13 +190,13 @@ namespace Project1
             // ExtrasBox
             // 
             this.ExtrasBox.Controls.Add(this.ExtrasListBox);
-            this.ExtrasBox.Location = new System.Drawing.Point(444, 255);
+            this.ExtrasBox.Enabled = false;
+            this.ExtrasBox.Location = new System.Drawing.Point(468, 288);
             this.ExtrasBox.Name = "ExtrasBox";
-            this.ExtrasBox.Size = new System.Drawing.Size(283, 225);
+            this.ExtrasBox.Size = new System.Drawing.Size(283, 256);
             this.ExtrasBox.TabIndex = 3;
             this.ExtrasBox.TabStop = false;
             this.ExtrasBox.Text = "Extras";
-            this.ExtrasBox.Enabled = false;
             // 
             // ExtrasListBox
             // 
@@ -221,7 +213,7 @@ namespace Project1
             "Avacado Spread - $1"});
             this.ExtrasListBox.Location = new System.Drawing.Point(6, 37);
             this.ExtrasListBox.Name = "ExtrasListBox";
-            this.ExtrasListBox.Size = new System.Drawing.Size(266, 168);
+            this.ExtrasListBox.Size = new System.Drawing.Size(266, 216);
             this.ExtrasListBox.TabIndex = 4;
             // 
             // CheeseBox
@@ -231,13 +223,13 @@ namespace Project1
             this.CheeseBox.Controls.Add(this.CheddarRadio);
             this.CheeseBox.Controls.Add(this.PepperJackRadio);
             this.CheeseBox.Controls.Add(this.ProvoRadio);
-            this.CheeseBox.Location = new System.Drawing.Point(444, 12);
+            this.CheeseBox.Enabled = false;
+            this.CheeseBox.Location = new System.Drawing.Point(468, 45);
             this.CheeseBox.Name = "CheeseBox";
             this.CheeseBox.Size = new System.Drawing.Size(210, 225);
             this.CheeseBox.TabIndex = 4;
             this.CheeseBox.TabStop = false;
             this.CheeseBox.Text = "Cheese";
-            this.CheeseBox.Enabled = false;
             // 
             // AmericanRadio
             // 
@@ -301,25 +293,24 @@ namespace Project1
             // 
             // SubMakerDisplay
             // 
-            this.SubMakerDisplay.Location = new System.Drawing.Point(964, 236);
+            this.SubMakerDisplay.Location = new System.Drawing.Point(6, 42);
             this.SubMakerDisplay.Multiline = true;
             this.SubMakerDisplay.Name = "SubMakerDisplay";
             this.SubMakerDisplay.ReadOnly = true;
-            this.SubMakerDisplay.Size = new System.Drawing.Size(388, 314);
+            this.SubMakerDisplay.Size = new System.Drawing.Size(411, 490);
             this.SubMakerDisplay.TabIndex = 5;
-            this.SubMakerDisplay.Text = "Sub In-Progress\r\n---------------------------------------------------------------\r" +
-    "\n\r\n";
+            this.SubMakerDisplay.Text = "\r\n";
             // 
             // SaucesSeasonBox
             // 
             this.SaucesSeasonBox.Controls.Add(this.SuacesSeasonsList);
-            this.SaucesSeasonBox.Location = new System.Drawing.Point(228, 255);
+            this.SaucesSeasonBox.Enabled = false;
+            this.SaucesSeasonBox.Location = new System.Drawing.Point(252, 288);
             this.SaucesSeasonBox.Name = "SaucesSeasonBox";
-            this.SaucesSeasonBox.Size = new System.Drawing.Size(210, 225);
+            this.SaucesSeasonBox.Size = new System.Drawing.Size(210, 256);
             this.SaucesSeasonBox.TabIndex = 6;
             this.SaucesSeasonBox.TabStop = false;
             this.SaucesSeasonBox.Text = "Sauces/Seasonings";
-            this.SaucesSeasonBox.Enabled = false;
             // 
             // SuacesSeasonsList
             // 
@@ -336,19 +327,19 @@ namespace Project1
             "Pepper"});
             this.SuacesSeasonsList.Location = new System.Drawing.Point(16, 37);
             this.SuacesSeasonsList.Name = "SuacesSeasonsList";
-            this.SuacesSeasonsList.Size = new System.Drawing.Size(174, 168);
+            this.SuacesSeasonsList.Size = new System.Drawing.Size(174, 216);
             this.SuacesSeasonsList.TabIndex = 4;
             // 
             // VeggieBox
             // 
             this.VeggieBox.Controls.Add(this.VeggiesList);
-            this.VeggieBox.Location = new System.Drawing.Point(12, 255);
+            this.VeggieBox.Enabled = false;
+            this.VeggieBox.Location = new System.Drawing.Point(36, 288);
             this.VeggieBox.Name = "VeggieBox";
-            this.VeggieBox.Size = new System.Drawing.Size(210, 225);
+            this.VeggieBox.Size = new System.Drawing.Size(210, 256);
             this.VeggieBox.TabIndex = 7;
             this.VeggieBox.TabStop = false;
             this.VeggieBox.Text = "Veggies";
-            this.VeggieBox.Enabled = false;
             // 
             // VeggiesList
             // 
@@ -365,22 +356,44 @@ namespace Project1
             "Hot Peppers"});
             this.VeggiesList.Location = new System.Drawing.Point(16, 37);
             this.VeggiesList.Name = "VeggiesList";
-            this.VeggiesList.Size = new System.Drawing.Size(174, 168);
+            this.VeggiesList.Size = new System.Drawing.Size(174, 216);
             this.VeggiesList.TabIndex = 4;
+            this.VeggiesList.SelectedIndexChanged += new System.EventHandler(this.VeggiesList_SelectedIndexChanged);
+            // 
+            // MakeYourOwnSub
+            // 
+            this.MakeYourOwnSub.BackColor = System.Drawing.SystemColors.Control;
+            this.MakeYourOwnSub.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MakeYourOwnSub.Location = new System.Drawing.Point(24, 12);
+            this.MakeYourOwnSub.Name = "MakeYourOwnSub";
+            this.MakeYourOwnSub.Size = new System.Drawing.Size(748, 538);
+            this.MakeYourOwnSub.TabIndex = 8;
+            this.MakeYourOwnSub.TabStop = false;
+            this.MakeYourOwnSub.Text = "Make Your Own Sub";
+            // 
+            // YourOrderBox
+            // 
+            this.YourOrderBox.Controls.Add(this.SubMakerDisplay);
+            this.YourOrderBox.Location = new System.Drawing.Point(778, 12);
+            this.YourOrderBox.Name = "YourOrderBox";
+            this.YourOrderBox.Size = new System.Drawing.Size(423, 538);
+            this.YourOrderBox.TabIndex = 9;
+            this.YourOrderBox.TabStop = false;
+            this.YourOrderBox.Text = "Your Order";
             // 
             // SubMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 562);
+            this.ClientSize = new System.Drawing.Size(1683, 562);
+            this.Controls.Add(this.YourOrderBox);
             this.Controls.Add(this.VeggieBox);
             this.Controls.Add(this.SaucesSeasonBox);
-            this.Controls.Add(this.SubMakerDisplay);
             this.Controls.Add(this.CheeseBox);
             this.Controls.Add(this.ExtrasBox);
             this.Controls.Add(this.MeatsBox);
-            this.Controls.Add(this.NameAddressBox);
             this.Controls.Add(this.SubSizeBox);
+            this.Controls.Add(this.MakeYourOwnSub);
             this.Name = "SubMaker";
             this.Text = "John Jimmy\'s Sub Maker";
             this.Load += new System.EventHandler(this.SubMaker_Load);
@@ -393,8 +406,9 @@ namespace Project1
             this.CheeseBox.PerformLayout();
             this.SaucesSeasonBox.ResumeLayout(false);
             this.VeggieBox.ResumeLayout(false);
+            this.YourOrderBox.ResumeLayout(false);
+            this.YourOrderBox.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -405,7 +419,6 @@ namespace Project1
         private System.Windows.Forms.RadioButton EightInRadio;
         private System.Windows.Forms.RadioButton SixInRadio;
         private System.Windows.Forms.RadioButton KidSizeRadio;
-        private TextBox NameAddressBox;
         private GroupBox MeatsBox;
         private RadioButton RoastedChickenRadio;
         private RadioButton TurkeyRadio;
@@ -424,5 +437,7 @@ namespace Project1
         private CheckedListBox SuacesSeasonsList;
         private GroupBox VeggieBox;
         private CheckedListBox VeggiesList;
+        private GroupBox MakeYourOwnSub;
+        private GroupBox YourOrderBox;
     }
 }
