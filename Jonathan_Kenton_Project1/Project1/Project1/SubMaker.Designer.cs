@@ -44,11 +44,11 @@ namespace Project1
             this.ExtrasBox = new System.Windows.Forms.GroupBox();
             this.ExtrasListBox = new System.Windows.Forms.CheckedListBox();
             this.CheeseBox = new System.Windows.Forms.GroupBox();
+            this.AmericanRadio = new System.Windows.Forms.RadioButton();
             this.SwissRadio = new System.Windows.Forms.RadioButton();
             this.CheddarRadio = new System.Windows.Forms.RadioButton();
             this.PepperJackRadio = new System.Windows.Forms.RadioButton();
             this.ProvoRadio = new System.Windows.Forms.RadioButton();
-            this.AmericanRadio = new System.Windows.Forms.RadioButton();
             this.SubMakerDisplay = new System.Windows.Forms.TextBox();
             this.SaucesSeasonBox = new System.Windows.Forms.GroupBox();
             this.SuacesSeasonsList = new System.Windows.Forms.CheckedListBox();
@@ -145,6 +145,7 @@ namespace Project1
             this.MeatsBox.TabIndex = 2;
             this.MeatsBox.TabStop = false;
             this.MeatsBox.Text = "Meats";
+            this.MeatsBox.Enabled = false;
             // 
             // RoastedChickenRadio
             // 
@@ -203,6 +204,7 @@ namespace Project1
             this.ExtrasBox.TabIndex = 3;
             this.ExtrasBox.TabStop = false;
             this.ExtrasBox.Text = "Extras";
+            this.ExtrasBox.Enabled = false;
             // 
             // ExtrasListBox
             // 
@@ -235,6 +237,19 @@ namespace Project1
             this.CheeseBox.TabIndex = 4;
             this.CheeseBox.TabStop = false;
             this.CheeseBox.Text = "Cheese";
+            this.CheeseBox.Enabled = false;
+            // 
+            // AmericanRadio
+            // 
+            this.AmericanRadio.AutoSize = true;
+            this.AmericanRadio.Location = new System.Drawing.Point(15, 180);
+            this.AmericanRadio.Name = "AmericanRadio";
+            this.AmericanRadio.Size = new System.Drawing.Size(120, 29);
+            this.AmericanRadio.TabIndex = 5;
+            this.AmericanRadio.TabStop = true;
+            this.AmericanRadio.Text = "American";
+            this.AmericanRadio.UseVisualStyleBackColor = true;
+            this.AmericanRadio.CheckedChanged += new System.EventHandler(this.AmericanRadio_CheckedChanged);
             // 
             // SwissRadio
             // 
@@ -284,18 +299,6 @@ namespace Project1
             this.ProvoRadio.UseVisualStyleBackColor = true;
             this.ProvoRadio.CheckedChanged += new System.EventHandler(this.ProvoRadio_CheckedChanged);
             // 
-            // AmericanRadio
-            // 
-            this.AmericanRadio.AutoSize = true;
-            this.AmericanRadio.Location = new System.Drawing.Point(15, 180);
-            this.AmericanRadio.Name = "AmericanRadio";
-            this.AmericanRadio.Size = new System.Drawing.Size(120, 29);
-            this.AmericanRadio.TabIndex = 5;
-            this.AmericanRadio.TabStop = true;
-            this.AmericanRadio.Text = "American";
-            this.AmericanRadio.UseVisualStyleBackColor = true;
-            this.AmericanRadio.CheckedChanged += new System.EventHandler(this.AmericanRadio_CheckedChanged);
-            // 
             // SubMakerDisplay
             // 
             this.SubMakerDisplay.Location = new System.Drawing.Point(964, 236);
@@ -316,6 +319,7 @@ namespace Project1
             this.SaucesSeasonBox.TabIndex = 6;
             this.SaucesSeasonBox.TabStop = false;
             this.SaucesSeasonBox.Text = "Sauces/Seasonings";
+            this.SaucesSeasonBox.Enabled = false;
             // 
             // SuacesSeasonsList
             // 
@@ -344,6 +348,7 @@ namespace Project1
             this.VeggieBox.TabIndex = 7;
             this.VeggieBox.TabStop = false;
             this.VeggieBox.Text = "Veggies";
+            this.VeggieBox.Enabled = false;
             // 
             // VeggiesList
             // 

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project1
@@ -41,6 +34,24 @@ namespace Project1
                 + "Cheese : " + CheeseChoice + Environment.NewLine;
         }
 
+        private void MakeBoxesEnabled()
+        {
+            MeatsBox.Enabled = true;
+            CheeseBox.Enabled = true;
+            VeggieBox.Enabled = true;
+            SaucesSeasonBox.Enabled = true;
+            ExtrasBox.Enabled = true;
+        }
+
+        private void MakeBoxesDisabled()
+        {
+            MeatsBox.Enabled = false;
+            CheeseBox.Enabled = false;
+            VeggieBox.Enabled = false;
+            SaucesSeasonBox.Enabled = false;
+            ExtrasBox.Enabled = false;
+        }
+
         private void KidSizeRadio_CheckedChanged(object sender, EventArgs e)
         {
             if(KidSizeRadio.Checked == true)
@@ -50,6 +61,7 @@ namespace Project1
                 TwelveInRadio.Checked = false;
                 SubSizeChoice = "3 in.";
                 SubStringSetter();
+                MakeBoxesEnabled();
             }
         }
 
@@ -62,6 +74,7 @@ namespace Project1
                 TwelveInRadio.Checked = false;
                 SubSizeChoice = "6 in.";
                 SubStringSetter();
+                MakeBoxesEnabled();
             }
         }
 
@@ -74,6 +87,7 @@ namespace Project1
                 TwelveInRadio.Checked = false;
                 SubSizeChoice = "8 in.";
                 SubStringSetter();
+                MakeBoxesEnabled();
             }
         }
 
@@ -86,6 +100,7 @@ namespace Project1
                 KidSizeRadio.Checked = false;
                 SubSizeChoice = "12 in.";
                 SubStringSetter();
+                MakeBoxesEnabled();
             }
         }
 
