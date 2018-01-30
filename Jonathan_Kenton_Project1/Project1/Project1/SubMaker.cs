@@ -1,0 +1,205 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Project1
+{
+    public partial class SubMaker : Form
+    {
+        private string CurrentSub;
+        private string SubSizeChoice = string.Empty;
+        private string MeatChoice = string.Empty;
+        private string CheeseChoice = string.Empty;
+
+        public SubMaker()
+        {
+            InitializeComponent();
+
+            SubStringSetter();
+        }
+
+        private void SubMaker_Load(object sender, EventArgs e)
+        {
+            NameAddressBox.Text = "Your Delivery Information" + Environment.NewLine
+                + "-------------------------------------" + Environment.NewLine
+                + "Name : " + Form1.userInfo.UserName + Environment.NewLine
+                + "Street Address : " + Form1.userInfo.StreetAddress + Environment.NewLine
+                + "City/State/Zip : " + Form1.userInfo.CityStateZip;
+        }
+
+        private void SubStringSetter()
+        {
+            SubMakerDisplay.Text += Environment.NewLine 
+                + "Sub Size : " + SubSizeChoice + Environment.NewLine
+                + " Meat : " + MeatChoice + Environment.NewLine
+                + "Cheese : " + CheeseChoice + Environment.NewLine;
+        }
+
+        private void KidSizeRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if(KidSizeRadio.Checked == true)
+            {
+                SixInRadio.Checked = false;
+                EightInRadio.Checked = false;
+                TwelveInRadio.Checked = false;
+                SubSizeChoice = "3 in.";
+                SubStringSetter();
+            }
+        }
+
+        private void SixInRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SixInRadio.Checked == true)
+            {
+                KidSizeRadio.Checked = false;
+                EightInRadio.Checked = false;
+                TwelveInRadio.Checked = false;
+                SubSizeChoice = "6 in.";
+                SubStringSetter();
+            }
+        }
+
+        private void EightInRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (EightInRadio.Checked == true)
+            {
+                KidSizeRadio.Checked = false;
+                SixInRadio.Checked = false;
+                TwelveInRadio.Checked = false;
+                SubSizeChoice = "8 in.";
+                SubStringSetter();
+            }
+        }
+
+        private void TwelveInRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (TwelveInRadio.Checked == true)
+            {
+                SixInRadio.Checked = false;
+                EightInRadio.Checked = false;
+                KidSizeRadio.Checked = false;
+                SubSizeChoice = "12 in.";
+                SubStringSetter();
+            }
+        }
+
+        private void HamRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (HamRadio.Checked == true)
+            {
+                RoastBeefRadio.Checked = false;
+                TurkeyRadio.Checked = false;
+                RoastedChickenRadio.Checked = false;
+                MeatChoice = HamRadio.Text;
+                SubStringSetter();
+            }
+        }
+
+        private void RoastBeefRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RoastBeefRadio.Checked == true)
+            {
+                HamRadio.Checked = false;
+                TurkeyRadio.Checked = false;
+                RoastedChickenRadio.Checked = false;
+                MeatChoice = RoastBeefRadio.Text;
+                SubStringSetter();
+            }
+        }
+
+        private void TurkeyRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (TurkeyRadio.Checked == true)
+            {
+                HamRadio.Checked = false;
+                RoastBeefRadio.Checked = false;
+                RoastedChickenRadio.Checked = false;
+                MeatChoice = TurkeyRadio.Text;
+                SubStringSetter();
+            }
+        }
+
+        private void RoastedChickenRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RoastedChickenRadio.Checked == true)
+            {
+                HamRadio.Checked = false;
+                RoastBeefRadio.Checked = false;
+                TurkeyRadio.Checked = false;
+                MeatChoice = RoastedChickenRadio.Text;
+                SubStringSetter();
+            }
+        }
+
+        private void ProvoRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ProvoRadio.Checked == true)
+            {
+                PepperJackRadio.Checked = false;
+                CheddarRadio.Checked = false;
+                SwissRadio.Checked = false;
+                AmericanRadio.Checked = false;
+                CheeseChoice = ProvoRadio.Text;
+                SubStringSetter();
+            }
+        }
+
+        private void PepperJackRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PepperJackRadio.Checked == true)
+            {
+                ProvoRadio.Checked = false;
+                CheddarRadio.Checked = false;
+                SwissRadio.Checked = false;
+                AmericanRadio.Checked = false;
+                CheeseChoice = PepperJackRadio.Text;
+                SubStringSetter();
+            }
+        }
+
+        private void CheddarRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheddarRadio.Checked == true)
+            {
+                ProvoRadio.Checked = false;
+                PepperJackRadio.Checked = false;
+                SwissRadio.Checked = false;
+                AmericanRadio.Checked = false;
+                CheeseChoice = CheddarRadio.Text;
+                SubStringSetter();
+            }
+        }
+
+        private void SwissRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SwissRadio.Checked == true)
+            {
+                ProvoRadio.Checked = false;
+                PepperJackRadio.Checked = false;
+                CheddarRadio.Checked = false;
+                AmericanRadio.Checked = false;
+                CheeseChoice = SwissRadio.Text;
+                SubStringSetter();
+            }
+        }
+
+        private void AmericanRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (AmericanRadio.Checked == true)
+            {
+                ProvoRadio.Checked = false;
+                PepperJackRadio.Checked = false;
+                CheddarRadio.Checked = false;
+                SwissRadio.Checked = false;
+                CheeseChoice = AmericanRadio.Text;
+                SubStringSetter();
+            }
+        }
+    }
+}
