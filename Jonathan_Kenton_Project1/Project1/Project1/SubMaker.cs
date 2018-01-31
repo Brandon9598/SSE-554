@@ -36,8 +36,8 @@ namespace Project1
                 + "City/State/Zip : " + Form1.userInfo.CityStateZip
                 + "-------------------------------------------------------------------" + Environment.NewLine;
 
-            SubMakerDisplay.Text += "Sub 1:" + Environment.NewLine 
-                + "-------------------------------------------------------------------" + Environment.NewLine 
+            SubMakerDisplay.Text += "Sub 1:" + Environment.NewLine
+                + "-------------------------------------------------------------------" + Environment.NewLine
                 + "Sub Size : " + SubSizeChoice + Environment.NewLine
                 + "Meat : " + MeatChoice + Environment.NewLine
                 + "Cheese : " + CheeseChoice + Environment.NewLine
@@ -62,7 +62,7 @@ namespace Project1
 
         private void CheckIfAnySubSizeSelected()
         {
-            if( KidSizeRadio.Checked == false 
+            if (KidSizeRadio.Checked == false
                 && SixInRadio.Checked == false
                 && EightInRadio.Checked == false
                 && TwelveInRadio.Checked == false)
@@ -73,7 +73,7 @@ namespace Project1
                 SaucesSeasonBox.Enabled = false;
                 ExtrasBox.Enabled = false;
             }
-                    
+
         }
 
         private void KidSizeRadio_CheckedChanged(object sender, EventArgs e)
@@ -252,21 +252,111 @@ namespace Project1
 
         private void VeggiesList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            VeggieChoice += VeggiesList.SelectedItem.ToString() + ", ";
+            for (int i = 0; i < VeggiesList.CheckedItems.Count; i++)
+            {
+                switch (VeggiesList.CheckedItems[i].ToString())
+                {
+                    case "Lettuce":
+                        VeggieChoice += "Lettuce, ";
+                        break;
+                    case "Spinich":
+                        VeggieChoice += "Spinich, ";
+                        break;
+                    case "Tomato":
+                        VeggieChoice += "Tomato, ";
+                        break;
+                    case "Pickles":
+                        VeggieChoice += "Pickles, ";
+                        break;
+                    case "Onions":
+                        VeggieChoice += "Onions, ";
+                        break;
+                    case "Bell Peppers":
+                        VeggieChoice += "Bell Peppers, ";
+                        break;
+                    case "Hot Peppers":
+                        VeggieChoice += "Hot Peppers, ";
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             SubStringSetter();
+
+            VeggieChoice = string.Empty;
         }
 
         private void SuacesSeasonsList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            SauceSeasonChoice += SuacesSeasonsList.SelectedItem.ToString() + ", ";
+            for (int i = 0; i < SuacesSeasonsList.CheckedItems.Count; i++)
+            {
+                switch (SuacesSeasonsList.CheckedItems[i].ToString())
+                {
+                    case "Mayo":
+                        SauceSeasonChoice += "Mayo, ";
+                        break;
+                    case "Mustard":
+                        SauceSeasonChoice += "Mustard, ";
+                        break;
+                    case "Spicy Mustard":
+                        SauceSeasonChoice += "Spicy Mustard, ";
+                        break;
+                    case "Ranch":
+                        SauceSeasonChoice += "Ranch, ";
+                        break;
+                    case "Oil and Vinegar":
+                        SauceSeasonChoice += "Oil and Vinegar, ";
+                        break;
+                    case "Salt":
+                        SauceSeasonChoice += "Salt, ";
+                        break;
+                    case "Pepper":
+                        SauceSeasonChoice += "Pepper, ";
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             SubStringSetter();
+
+            SauceSeasonChoice = string.Empty;
         }
 
         private void ExtrasListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            ExtrasChoice += ExtrasListBox.SelectedItem.ToString() + ", ";
+            for (int i = 0; i < ExtrasListBox.CheckedItems.Count; i++)
+            {
+                ExtrasChoice = string.Empty;
+
+                switch (ExtrasListBox.CheckedItems[i].ToString())
+                {
+                    case "Extra Ham (+ $1.50)":
+                        ExtrasChoice += "Extra Ham(+ $1.50), ";
+                        break;
+                    case "Extra Roast Beef (+ $1.50)":
+                        ExtrasChoice += "Extra Roast Beef(+ $1.50), ";
+                        break;
+                    case "Extra Turkey (+ $1.50)":
+                        ExtrasChoice += "Extra Turkey(+ $1.50), ";
+                        break;
+                    case "Extra Roasted Chicken (+ $1.50)":
+                        ExtrasChoice += "Extra Roasted Chicken(+ $1.50), ";
+                        break;
+                    case "Extra Cheese (+ $0.75)":
+                        ExtrasChoice += "Extra Cheese(+ $0.75), ";
+                        break;
+                    case "Bacon (+ $0.75)":
+                        ExtrasChoice += "Bacon(+ $0.75), ";
+                        break;
+                    case "Avacado Spread (+ $0.75)":
+                        ExtrasChoice += "Avacado Spread(+ $0.75), ";
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             SubStringSetter();
         }

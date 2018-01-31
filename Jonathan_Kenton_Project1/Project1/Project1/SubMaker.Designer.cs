@@ -362,6 +362,7 @@ namespace Project1
             this.VeggiesList.Size = new System.Drawing.Size(174, 216);
             this.VeggiesList.TabIndex = 4;
             this.VeggiesList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.VeggiesList_ItemCheck);
+            this.VeggiesList.Click += new System.EventHandler(this.VeggiesList_Click);
             // 
             // MakeYourOwnSub
             // 
