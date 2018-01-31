@@ -193,7 +193,7 @@ namespace Project1
             this.ExtrasBox.Enabled = false;
             this.ExtrasBox.Location = new System.Drawing.Point(468, 288);
             this.ExtrasBox.Name = "ExtrasBox";
-            this.ExtrasBox.Size = new System.Drawing.Size(283, 256);
+            this.ExtrasBox.Size = new System.Drawing.Size(335, 256);
             this.ExtrasBox.TabIndex = 3;
             this.ExtrasBox.TabStop = false;
             this.ExtrasBox.Text = "Extras";
@@ -204,17 +204,18 @@ namespace Project1
             this.ExtrasListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ExtrasListBox.FormattingEnabled = true;
             this.ExtrasListBox.Items.AddRange(new object[] {
-            "Extra Ham - $2",
-            "Extra Roast Beef - $2",
-            "Extra Turkey - $2",
-            "Extra Roasted Chicken - $2",
-            "Extra Cheese - $1",
-            "Bacon - $1",
-            "Avacado Spread - $1"});
+            "Extra Ham (+ $1.50)",
+            "Extra Roast Beef (+ $1.50)",
+            "Extra Turkey (+ $1.50)",
+            "Extra Roasted Chicken (+ $1.50)",
+            "Extra Cheese (+ $0.75)",
+            "Bacon (+ $0.75)",
+            "Avacado Spread (+ $0.75)"});
             this.ExtrasListBox.Location = new System.Drawing.Point(6, 37);
             this.ExtrasListBox.Name = "ExtrasListBox";
-            this.ExtrasListBox.Size = new System.Drawing.Size(266, 216);
+            this.ExtrasListBox.Size = new System.Drawing.Size(323, 216);
             this.ExtrasListBox.TabIndex = 4;
+            this.ExtrasListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ExtrasListBox_ItemCheck);
             // 
             // CheeseBox
             // 
@@ -329,6 +330,7 @@ namespace Project1
             this.SuacesSeasonsList.Name = "SuacesSeasonsList";
             this.SuacesSeasonsList.Size = new System.Drawing.Size(174, 216);
             this.SuacesSeasonsList.TabIndex = 4;
+            this.SuacesSeasonsList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.SuacesSeasonsList_ItemCheck);
             // 
             // VeggieBox
             // 
@@ -345,11 +347,12 @@ namespace Project1
             // 
             this.VeggiesList.BackColor = System.Drawing.SystemColors.Control;
             this.VeggiesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VeggiesList.CheckOnClick = true;
             this.VeggiesList.FormattingEnabled = true;
             this.VeggiesList.Items.AddRange(new object[] {
             "Lettuce",
             "Spinich",
-            "Tomat",
+            "Tomato",
             "Pickles",
             "Onions",
             "Bell Pepper",
@@ -358,7 +361,7 @@ namespace Project1
             this.VeggiesList.Name = "VeggiesList";
             this.VeggiesList.Size = new System.Drawing.Size(174, 216);
             this.VeggiesList.TabIndex = 4;
-            this.VeggiesList.SelectedIndexChanged += new System.EventHandler(this.VeggiesList_SelectedIndexChanged);
+            this.VeggiesList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.VeggiesList_ItemCheck);
             // 
             // MakeYourOwnSub
             // 
@@ -366,7 +369,7 @@ namespace Project1
             this.MakeYourOwnSub.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MakeYourOwnSub.Location = new System.Drawing.Point(24, 12);
             this.MakeYourOwnSub.Name = "MakeYourOwnSub";
-            this.MakeYourOwnSub.Size = new System.Drawing.Size(748, 538);
+            this.MakeYourOwnSub.Size = new System.Drawing.Size(785, 538);
             this.MakeYourOwnSub.TabIndex = 8;
             this.MakeYourOwnSub.TabStop = false;
             this.MakeYourOwnSub.Text = "Make Your Own Sub";
@@ -374,7 +377,7 @@ namespace Project1
             // YourOrderBox
             // 
             this.YourOrderBox.Controls.Add(this.SubMakerDisplay);
-            this.YourOrderBox.Location = new System.Drawing.Point(778, 12);
+            this.YourOrderBox.Location = new System.Drawing.Point(815, 12);
             this.YourOrderBox.Name = "YourOrderBox";
             this.YourOrderBox.Size = new System.Drawing.Size(423, 538);
             this.YourOrderBox.TabIndex = 9;

@@ -8,6 +8,9 @@ namespace Project1
         private string SubSizeChoice = string.Empty;
         private string MeatChoice = string.Empty;
         private string CheeseChoice = string.Empty;
+        private string VeggieChoice = string.Empty;
+        private string SauceSeasonChoice = string.Empty;
+        private string ExtrasChoice = string.Empty;
 
         public SubMaker()
         {
@@ -37,7 +40,10 @@ namespace Project1
                 + "-------------------------------------------------------------------" + Environment.NewLine 
                 + "Sub Size : " + SubSizeChoice + Environment.NewLine
                 + "Meat : " + MeatChoice + Environment.NewLine
-                + "Cheese : " + CheeseChoice + Environment.NewLine;
+                + "Cheese : " + CheeseChoice + Environment.NewLine
+                + "Veggies : " + VeggieChoice + Environment.NewLine
+                + "Sauces/Seasonings : " + SauceSeasonChoice + Environment.NewLine
+                + "Extras : " + ExtrasChoice + Environment.NewLine;
         }
 
         private void AddAnotherSub()
@@ -244,9 +250,25 @@ namespace Project1
             }
         }
 
-        private void VeggiesList_SelectedIndexChanged(object sender, EventArgs e)
+        private void VeggiesList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            
+            VeggieChoice += VeggiesList.SelectedItem.ToString() + ", ";
+
+            SubStringSetter();
+        }
+
+        private void SuacesSeasonsList_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            SauceSeasonChoice += SuacesSeasonsList.SelectedItem.ToString() + ", ";
+
+            SubStringSetter();
+        }
+
+        private void ExtrasListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            ExtrasChoice += ExtrasListBox.SelectedItem.ToString() + ", ";
+
+            SubStringSetter();
         }
     }
 }

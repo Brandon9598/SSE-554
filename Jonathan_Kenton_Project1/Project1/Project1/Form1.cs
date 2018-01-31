@@ -17,6 +17,10 @@ namespace Project1
         public Form1()
         {
             InitializeComponent();
+
+            NameBox.Text = "Jonathan Kenton";
+            StreetBox.Text = "213 Hathersage Dr.";
+            CityStateZipBox.Text = "Kathleen, Ga. 31047"; 
         }
 
         private void SubmitButton_Click(object sender, EventArgs e)
