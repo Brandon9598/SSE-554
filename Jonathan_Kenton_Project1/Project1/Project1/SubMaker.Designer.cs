@@ -202,6 +202,7 @@ namespace Project1
             // 
             this.ExtrasListBox.BackColor = System.Drawing.SystemColors.Control;
             this.ExtrasListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ExtrasListBox.CheckOnClick = true;
             this.ExtrasListBox.FormattingEnabled = true;
             this.ExtrasListBox.Items.AddRange(new object[] {
             "Extra Ham (+ $1.50)",
@@ -215,7 +216,7 @@ namespace Project1
             this.ExtrasListBox.Name = "ExtrasListBox";
             this.ExtrasListBox.Size = new System.Drawing.Size(323, 216);
             this.ExtrasListBox.TabIndex = 4;
-            this.ExtrasListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ExtrasListBox_ItemCheck);
+            this.ExtrasListBox.SelectedIndexChanged += new System.EventHandler(this.ExtrasListBox_SelectedIndexChanged);
             // 
             // CheeseBox
             // 
@@ -317,6 +318,7 @@ namespace Project1
             // 
             this.SuacesSeasonsList.BackColor = System.Drawing.SystemColors.Control;
             this.SuacesSeasonsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SuacesSeasonsList.CheckOnClick = true;
             this.SuacesSeasonsList.FormattingEnabled = true;
             this.SuacesSeasonsList.Items.AddRange(new object[] {
             "Mayo",
@@ -330,7 +332,7 @@ namespace Project1
             this.SuacesSeasonsList.Name = "SuacesSeasonsList";
             this.SuacesSeasonsList.Size = new System.Drawing.Size(174, 216);
             this.SuacesSeasonsList.TabIndex = 4;
-            this.SuacesSeasonsList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.SuacesSeasonsList_ItemCheck);
+            this.SuacesSeasonsList.SelectedIndexChanged += new System.EventHandler(this.SuacesSeasonsList_SelectedIndexChanged);
             // 
             // VeggieBox
             // 
@@ -351,18 +353,17 @@ namespace Project1
             this.VeggiesList.FormattingEnabled = true;
             this.VeggiesList.Items.AddRange(new object[] {
             "Lettuce",
-            "Spinich",
+            "Spinach",
             "Tomato",
             "Pickles",
             "Onions",
             "Bell Pepper",
             "Hot Peppers"});
-            this.VeggiesList.Location = new System.Drawing.Point(16, 37);
+            this.VeggiesList.Location = new System.Drawing.Point(20, 37);
             this.VeggiesList.Name = "VeggiesList";
             this.VeggiesList.Size = new System.Drawing.Size(174, 216);
-            this.VeggiesList.TabIndex = 4;
-            this.VeggiesList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.VeggiesList_ItemCheck);
-            this.VeggiesList.Click += new System.EventHandler(this.VeggiesList_Click);
+            this.VeggiesList.TabIndex = 5;
+            this.VeggiesList.SelectedIndexChanged += new System.EventHandler(this.VeggiesList_SelectedIndexChanged);
             // 
             // MakeYourOwnSub
             // 
@@ -440,8 +441,8 @@ namespace Project1
         private GroupBox SaucesSeasonBox;
         private CheckedListBox SuacesSeasonsList;
         private GroupBox VeggieBox;
-        private CheckedListBox VeggiesList;
         private GroupBox MakeYourOwnSub;
         private GroupBox YourOrderBox;
+        private CheckedListBox VeggiesList;
     }
 }

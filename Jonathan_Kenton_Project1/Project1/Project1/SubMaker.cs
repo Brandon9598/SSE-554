@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Project1
@@ -249,116 +250,130 @@ namespace Project1
                 SubStringSetter();
             }
         }
-
-        private void VeggiesList_ItemCheck(object sender, ItemCheckEventArgs e)
+        
+        private void VeggiesList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < VeggiesList.CheckedItems.Count; i++)
+            VeggieChoice = string.Empty;
+
+            SubStringSetter();
+
+            foreach (int indexChecked in VeggiesList.CheckedIndices)
             {
-                switch (VeggiesList.CheckedItems[i].ToString())
+                switch (indexChecked)
                 {
-                    case "Lettuce":
+                    case 0:
                         VeggieChoice += "Lettuce, ";
+                        Debug.WriteLine(0);
                         break;
-                    case "Spinich":
-                        VeggieChoice += "Spinich, ";
+                    case 1:
+                        VeggieChoice += "Spinach, ";
+                        Debug.WriteLine(1);
                         break;
-                    case "Tomato":
+                    case 2:
                         VeggieChoice += "Tomato, ";
+                        Debug.WriteLine(2);
                         break;
-                    case "Pickles":
+                    case 3:
                         VeggieChoice += "Pickles, ";
+                        Debug.WriteLine(3);
                         break;
-                    case "Onions":
+                    case 4:
                         VeggieChoice += "Onions, ";
+                        Debug.WriteLine(4);
                         break;
-                    case "Bell Peppers":
+                    case 5:
                         VeggieChoice += "Bell Peppers, ";
+                        Debug.WriteLine(5);
                         break;
-                    case "Hot Peppers":
+                    case 6:
                         VeggieChoice += "Hot Peppers, ";
+                        Debug.WriteLine(7);
                         break;
                     default:
                         break;
                 }
+
+                SubStringSetter();
             }
+        }
+
+        private void SuacesSeasonsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SauceSeasonChoice = string.Empty;
 
             SubStringSetter();
 
-            VeggieChoice = string.Empty;
-        }
-
-        private void SuacesSeasonsList_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            for (int i = 0; i < SuacesSeasonsList.CheckedItems.Count; i++)
+            foreach(int indexChecked in SuacesSeasonsList.CheckedIndices)
             {
-                switch (SuacesSeasonsList.CheckedItems[i].ToString())
+                switch (indexChecked)
                 {
-                    case "Mayo":
+                    case 0:
                         SauceSeasonChoice += "Mayo, ";
                         break;
-                    case "Mustard":
+                    case 1:
                         SauceSeasonChoice += "Mustard, ";
                         break;
-                    case "Spicy Mustard":
+                    case 2:
                         SauceSeasonChoice += "Spicy Mustard, ";
                         break;
-                    case "Ranch":
+                    case 3:
                         SauceSeasonChoice += "Ranch, ";
                         break;
-                    case "Oil and Vinegar":
+                    case 4:
                         SauceSeasonChoice += "Oil and Vinegar, ";
                         break;
-                    case "Salt":
+                    case 5:
                         SauceSeasonChoice += "Salt, ";
                         break;
-                    case "Pepper":
+                    case 6:
                         SauceSeasonChoice += "Pepper, ";
                         break;
                     default:
                         break;
                 }
+
+                SubStringSetter();
             }
+        }
+
+        private void ExtrasListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ExtrasChoice = string.Empty;
 
             SubStringSetter();
 
-            SauceSeasonChoice = string.Empty;
-        }
-
-        private void ExtrasListBox_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            for (int i = 0; i < ExtrasListBox.CheckedItems.Count; i++)
+            foreach(int indexChecked in ExtrasListBox.CheckedIndices)
             {
-                ExtrasChoice = string.Empty;
-
-                switch (ExtrasListBox.CheckedItems[i].ToString())
+                switch (indexChecked)
                 {
-                    case "Extra Ham (+ $1.50)":
+                    case 0:
                         ExtrasChoice += "Extra Ham(+ $1.50), ";
                         break;
-                    case "Extra Roast Beef (+ $1.50)":
+                    case 1:
                         ExtrasChoice += "Extra Roast Beef(+ $1.50), ";
                         break;
-                    case "Extra Turkey (+ $1.50)":
+                    case 2:
                         ExtrasChoice += "Extra Turkey(+ $1.50), ";
                         break;
-                    case "Extra Roasted Chicken (+ $1.50)":
+                    case 3:
                         ExtrasChoice += "Extra Roasted Chicken(+ $1.50), ";
                         break;
-                    case "Extra Cheese (+ $0.75)":
+                    case 4:
                         ExtrasChoice += "Extra Cheese(+ $0.75), ";
                         break;
-                    case "Bacon (+ $0.75)":
+                    case 5:
                         ExtrasChoice += "Bacon(+ $0.75), ";
                         break;
-                    case "Avacado Spread (+ $0.75)":
+                    case 6:
                         ExtrasChoice += "Avacado Spread(+ $0.75), ";
                         break;
                     default:
                         break;
                 }
-            }
 
-            SubStringSetter();
+                SubStringSetter();
+            }
+                
         }
     }
 }
