@@ -6,45 +6,28 @@ namespace Project1
 {
     public partial class SubMaker : Form
     {
-        private string SubSizeChoice = string.Empty;
-        private string MeatChoice = string.Empty;
-        private string CheeseChoice = string.Empty;
-        private string VeggieChoice = string.Empty;
-        private string SauceSeasonChoice = string.Empty;
-        private string ExtrasChoice = string.Empty;
+        static Controls C = new Controls();
+
+        public string SubSizeChoice = string.Empty;
+        public string MeatChoice = string.Empty;
+        public string CheeseChoice = string.Empty;
+        public string VeggieChoice = string.Empty;
+        public string SauceSeasonChoice = string.Empty;
+        public string ExtrasChoice = string.Empty;
 
         public SubMaker()
         {
             InitializeComponent();
+        }
 
+        private void SubMaker_Load(object sender, EventArgs e)
+        {
             SubStringSetter();
         }
 
-        public void SubMaker_Load(object sender, EventArgs e)
+        private void SubStringSetter()
         {
-            SubMakerDisplay.Text += Environment.NewLine
-                + "Name : " + Form1.userInfo.UserName + Environment.NewLine
-                + "Street Address : " + Form1.userInfo.StreetAddress + Environment.NewLine
-                + "City/State/Zip : " + Form1.userInfo.CityStateZip
-                + "-------------------------------------------------------------------" + Environment.NewLine;
-        }
-
-        public void SubStringSetter()
-        {
-            SubMakerDisplay.Text = Environment.NewLine
-                + "Name : " + Form1.userInfo.UserName + Environment.NewLine
-                + "Street Address : " + Form1.userInfo.StreetAddress + Environment.NewLine
-                + "City/State/Zip : " + Form1.userInfo.CityStateZip
-                + "-------------------------------------------------------------------" + Environment.NewLine;
-
-            SubMakerDisplay.Text += "Sub 1:" + Environment.NewLine
-                + "-------------------------------------------------------------------" + Environment.NewLine
-                + "Sub Size : " + SubSizeChoice + Environment.NewLine
-                + "Meat : " + MeatChoice + Environment.NewLine
-                + "Cheese : " + CheeseChoice + Environment.NewLine
-                + "Veggies : " + VeggieChoice + Environment.NewLine
-                + "Sauces/Seasonings : " + SauceSeasonChoice + Environment.NewLine
-                + "Extras : " + ExtrasChoice + Environment.NewLine;
+            SubMakerDisplay.Text = C.SubStringSetter();
         }
 
         public void MakeBoxesEnabled()
@@ -56,18 +39,9 @@ namespace Project1
             ExtrasBox.Enabled = true;
         }
 
-        public static bool CheckIfAnySubSizeSelected(bool KidSize, bool SixIn, bool EightIn, bool TwelveIn)
-        {
-            
-            if(KidSize == true || SixIn == true || EightIn == true || TwelveIn == false)
-                return true;
-            else
-                return false;
-        }
-
         private void KidSizeRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if(CheckIfAnySubSizeSelected(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
+            if(C.SendSubSizes(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
             {
                 MakeBoxesEnabled();
 
@@ -85,7 +59,7 @@ namespace Project1
 
         private void SixInRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if (CheckIfAnySubSizeSelected(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
+            if (C.SendSubSizes(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
             {
                 MakeBoxesEnabled();
 
@@ -103,7 +77,7 @@ namespace Project1
 
         private void EightInRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if (CheckIfAnySubSizeSelected(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
+            if (C.SendSubSizes(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
             {
                 MakeBoxesEnabled();
 
@@ -121,7 +95,7 @@ namespace Project1
 
         private void TwelveInRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if (CheckIfAnySubSizeSelected(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
+            if (C.SendSubSizes(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
             {
                 MakeBoxesEnabled();
 

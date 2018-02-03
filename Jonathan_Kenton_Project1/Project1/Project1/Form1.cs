@@ -7,6 +7,8 @@ namespace Project1
     {
         public static UserInfo userInfo;
 
+        public SubMaker subMaker;
+
         public Form1()
         {
             InitializeComponent();
@@ -21,9 +23,9 @@ namespace Project1
 
             if(UserDeliveryInput(NameBox.Text, StreetBox.Text, CityStateZipBox.Text))
             {
-                var f = (SubMaker)Tag;
+                subMaker = new SubMaker();
 
-                f.Show(this);
+                subMaker.Show();
 
                 this.Hide();
             }
