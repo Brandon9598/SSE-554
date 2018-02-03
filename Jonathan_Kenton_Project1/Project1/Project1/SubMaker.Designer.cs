@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace Project1
+﻿namespace Project1
 {
     public partial class SubMaker
     {
@@ -423,25 +421,25 @@ namespace Project1
         private System.Windows.Forms.RadioButton EightInRadio;
         private System.Windows.Forms.RadioButton SixInRadio;
         private System.Windows.Forms.RadioButton KidSizeRadio;
-        private GroupBox MeatsBox;
-        private RadioButton RoastedChickenRadio;
-        private RadioButton TurkeyRadio;
-        private RadioButton RoastBeefRadio;
-        private RadioButton HamRadio;
-        private GroupBox ExtrasBox;
-        private CheckedListBox ExtrasListBox;
-        private GroupBox CheeseBox;
-        private RadioButton SwissRadio;
-        private RadioButton CheddarRadio;
-        private RadioButton PepperJackRadio;
-        private RadioButton ProvoRadio;
-        private RadioButton AmericanRadio;
-        private TextBox SubMakerDisplay;
-        private GroupBox SaucesSeasonBox;
-        private CheckedListBox SuacesSeasonsList;
-        private GroupBox VeggieBox;
-        private GroupBox MakeYourOwnSub;
-        private GroupBox YourOrderBox;
-        private CheckedListBox VeggiesList;
+        private System.Windows.Forms.GroupBox MeatsBox;
+        private System.Windows.Forms.RadioButton RoastedChickenRadio;
+        private System.Windows.Forms.RadioButton TurkeyRadio;
+        private System.Windows.Forms.RadioButton RoastBeefRadio;
+        private System.Windows.Forms.RadioButton HamRadio;
+        private System.Windows.Forms.GroupBox ExtrasBox;
+        private System.Windows.Forms.CheckedListBox ExtrasListBox;
+        private System.Windows.Forms.GroupBox CheeseBox;
+        private System.Windows.Forms.RadioButton SwissRadio;
+        private System.Windows.Forms.RadioButton CheddarRadio;
+        private System.Windows.Forms.RadioButton PepperJackRadio;
+        private System.Windows.Forms.RadioButton ProvoRadio;
+        private System.Windows.Forms.RadioButton AmericanRadio;
+        private System.Windows.Forms.TextBox SubMakerDisplay;
+        private System.Windows.Forms.GroupBox SaucesSeasonBox;
+        private System.Windows.Forms.CheckedListBox SuacesSeasonsList;
+        private System.Windows.Forms.GroupBox VeggieBox;
+        private System.Windows.Forms.GroupBox MakeYourOwnSub;
+        private System.Windows.Forms.GroupBox YourOrderBox;
+        private System.Windows.Forms.CheckedListBox VeggiesList;
     }
 }

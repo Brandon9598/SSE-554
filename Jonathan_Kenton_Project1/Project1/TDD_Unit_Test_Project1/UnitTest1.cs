@@ -1,4 +1,5 @@
 ﻿using Project1;
+using Project1.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
@@ -8,6 +9,8 @@ namespace TDD_Unit_Test_Project1
     public class UnitTest1
     {
         Form1 F = new Form1();
+
+        SubMakerControls s = new SubMakerControls();
 
         [TestMethod]
         public void TestUserDeliveryInput()
@@ -29,7 +32,7 @@ namespace TDD_Unit_Test_Project1
 
             bool KidSize = true, SixIn = true, EightIn = true, TwelveIn = true;
 
-            SubSizeSelected = Controls.CheckIfAnySubSizeSelected(KidSize, SixIn, EightIn, TwelveIn);
+            SubSizeSelected = s.SendSubSizes(KidSize, SixIn, EightIn, TwelveIn);
 
             Assert.AreEqual(SubSizeSelected, false);
         }

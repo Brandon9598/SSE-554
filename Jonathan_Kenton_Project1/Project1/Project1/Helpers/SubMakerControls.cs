@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Project1;
+using System;
 
-namespace Project1
+namespace Project1.Helpers
 {
-    public class Controls
+    public class SubMakerControls
     {
         SubMaker subMaker;
 
@@ -17,7 +18,7 @@ namespace Project1
 
         public bool SendSubSizes(bool KidSize, bool SixIn, bool EightIn, bool TwelveIn)
         {
-           return CheckIfAnySubSizeSelected(KidSize, SixIn, EightIn, TwelveIn);
+            return CheckIfAnySubSizeSelected(KidSize, SixIn, EightIn, TwelveIn);
         }
 
         public string SubStringSetter()
@@ -36,8 +37,6 @@ namespace Project1
                     + "Sauces/Seasonings : " + subMaker.SauceSeasonChoice + Environment.NewLine
                     + "Extras : " + subMaker.ExtrasChoice + Environment.NewLine;
         }
-
-
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project1.Helpers;
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -6,7 +7,7 @@ namespace Project1
 {
     public partial class SubMaker : Form
     {
-        static Controls C = new Controls();
+        SubMakerControls C = new SubMakerControls();
 
         public string SubSizeChoice = string.Empty;
         public string MeatChoice = string.Empty;
