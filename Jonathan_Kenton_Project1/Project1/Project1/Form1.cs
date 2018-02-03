@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project1
@@ -13,6 +6,7 @@ namespace Project1
     public partial class Form1 : Form
     {
         public static UserInfo userInfo;
+        public static SubMaker subMaker;
 
         public Form1()
         {
@@ -25,16 +19,26 @@ namespace Project1
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            if(NameBox.Text != string.Empty && StreetBox.Text != string.Empty && CityStateZipBox.Text != string.Empty)
-            {
-                userInfo = new UserInfo(NameBox.Text, StreetBox.Text, CityStateZipBox.Text);
-                SubMaker subMaker = new SubMaker();
 
+            if(UserDeliveryInput(NameBox.Text, StreetBox.Text, CityStateZipBox.Text))
+            {
                 subMaker.Show();
 
                 this.Hide();
             }
-                
+            
+        }
+
+        public bool UserDeliveryInput(string Name, string StreetName, string CityStateZip)
+        {
+            if (Name != string.Empty && StreetName != string.Empty && CityStateZipBox.Text != string.Empty)
+            {
+                userInfo = new UserInfo(NameBox.Text, StreetBox.Text, CityStateZipBox.Text);
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

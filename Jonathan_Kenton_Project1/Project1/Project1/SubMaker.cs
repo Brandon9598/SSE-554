@@ -20,7 +20,7 @@ namespace Project1
             SubStringSetter();
         }
 
-        private void SubMaker_Load(object sender, EventArgs e)
+        public void SubMaker_Load(object sender, EventArgs e)
         {
             SubMakerDisplay.Text += Environment.NewLine
                 + "Name : " + Form1.userInfo.UserName + Environment.NewLine
@@ -47,12 +47,7 @@ namespace Project1
                 + "Extras : " + ExtrasChoice + Environment.NewLine;
         }
 
-        private void AddAnotherSub()
-        {
-
-        }
-
-        private void MakeBoxesEnabled()
+        public void MakeBoxesEnabled()
         {
             MeatsBox.Enabled = true;
             CheeseBox.Enabled = true;
@@ -61,81 +56,85 @@ namespace Project1
             ExtrasBox.Enabled = true;
         }
 
-        private void CheckIfAnySubSizeSelected()
+        public static bool CheckIfAnySubSizeSelected(bool KidSize, bool SixIn, bool EightIn, bool TwelveIn)
         {
-            if (KidSizeRadio.Checked == false
-                && SixInRadio.Checked == false
-                && EightInRadio.Checked == false
-                && TwelveInRadio.Checked == false)
-            {
-                MeatsBox.Enabled = false;
-                CheeseBox.Enabled = false;
-                VeggieBox.Enabled = false;
-                SaucesSeasonBox.Enabled = false;
-                ExtrasBox.Enabled = false;
-            }
-
+            
+            if(KidSize == true || SixIn == true || EightIn == true || TwelveIn == false)
+                return true;
+            else
+                return false;
         }
 
         private void KidSizeRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if (KidSizeRadio.Checked == true)
+            if(CheckIfAnySubSizeSelected(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
             {
-                SixInRadio.Checked = false;
-                EightInRadio.Checked = false;
-                TwelveInRadio.Checked = false;
-                SubSizeChoice = "3 in.";
-                SubStringSetter();
                 MakeBoxesEnabled();
-            }
-            else
-                CheckIfAnySubSizeSelected();
+
+                if (KidSizeRadio.Checked == true)
+                {
+                    SixInRadio.Checked = false;
+                    EightInRadio.Checked = false;
+                    TwelveInRadio.Checked = false;
+
+                    SubSizeChoice = "3 in.";
+                    SubStringSetter();
+                }
+            }   
         }
 
         private void SixInRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if (SixInRadio.Checked == true)
+            if (CheckIfAnySubSizeSelected(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
             {
-                KidSizeRadio.Checked = false;
-                EightInRadio.Checked = false;
-                TwelveInRadio.Checked = false;
-                SubSizeChoice = "6 in.";
-                SubStringSetter();
                 MakeBoxesEnabled();
+
+                if (SixInRadio.Checked == true)
+                {
+                    KidSizeRadio.Checked = false;
+                    EightInRadio.Checked = false;
+                    TwelveInRadio.Checked = false;
+
+                    SubSizeChoice = "6 in.";
+                    SubStringSetter();
+                }
             }
-            else
-                CheckIfAnySubSizeSelected();
         }
 
         private void EightInRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if (EightInRadio.Checked == true)
+            if (CheckIfAnySubSizeSelected(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
             {
-                KidSizeRadio.Checked = false;
-                SixInRadio.Checked = false;
-                TwelveInRadio.Checked = false;
-                SubSizeChoice = "8 in.";
-                SubStringSetter();
                 MakeBoxesEnabled();
-            }
-            else
-                CheckIfAnySubSizeSelected();
 
+                if (EightInRadio.Checked == true)
+                {
+                    KidSizeRadio.Checked = false;
+                    SixInRadio.Checked = false;
+                    TwelveInRadio.Checked = false;
+
+                    SubSizeChoice = "8 in.";
+                    SubStringSetter();
+                }
+            }
         }
 
         private void TwelveInRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if (TwelveInRadio.Checked == true)
+            if (CheckIfAnySubSizeSelected(KidSizeRadio.Checked, SixInRadio.Checked, EightInRadio.Checked, TwelveInRadio.Checked))
             {
-                SixInRadio.Checked = false;
-                EightInRadio.Checked = false;
-                KidSizeRadio.Checked = false;
-                SubSizeChoice = "12 in.";
-                SubStringSetter();
                 MakeBoxesEnabled();
+
+                if (TwelveInRadio.Checked == true)
+                {
+                    SixInRadio.Checked = false;
+                    EightInRadio.Checked = false;
+                    KidSizeRadio.Checked = false;
+
+                    SubSizeChoice = "12 in.";
+                    SubStringSetter();
+                }
             }
-            else
-                CheckIfAnySubSizeSelected();
         }
 
         private void HamRadio_CheckedChanged(object sender, EventArgs e)

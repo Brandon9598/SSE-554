@@ -60,6 +60,11 @@
     <Compile Include="SubMaker.Designer.cs">
       <DependentUpon>SubMaker.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubMaker1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubMaker.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -75,6 +80,8 @@
     </Compile>
     <EmbeddedResource Include="SubMaker.resx">
       <DependentUpon>SubMaker.cs</DependentUpon>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SubMaker1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -399,7 +399,7 @@ namespace Project1
             this.Controls.Add(this.MeatsBox);
             this.Controls.Add(this.SubSizeBox);
             this.Controls.Add(this.MakeYourOwnSub);
-            this.Name = "SubMaker";
+            
             this.Text = "John Jimmy\'s Sub Maker";
             this.Load += new System.EventHandler(this.SubMaker_Load);
             this.SubSizeBox.ResumeLayout(false);
@@ -414,7 +414,6 @@ namespace Project1
             this.YourOrderBox.ResumeLayout(false);
             this.YourOrderBox.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
