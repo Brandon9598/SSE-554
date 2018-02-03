@@ -2,7 +2,7 @@
 
 namespace Project1
 {
-    partial class SubMaker
+    public partial class SubMaker
     {
         /// <summary>
         /// Required designer variable.

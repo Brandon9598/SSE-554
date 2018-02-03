@@ -6,7 +6,6 @@ namespace Project1
     public partial class Form1 : Form
     {
         public static UserInfo userInfo;
-        public static SubMaker subMaker;
 
         public Form1()
         {
@@ -22,7 +21,9 @@ namespace Project1
 
             if(UserDeliveryInput(NameBox.Text, StreetBox.Text, CityStateZipBox.Text))
             {
-                subMaker.Show();
+                var f = (SubMaker)Tag;
+
+                f.Show(this);
 
                 this.Hide();
             }

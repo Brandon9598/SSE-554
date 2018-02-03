@@ -29,7 +29,7 @@ namespace Project1
                 + "-------------------------------------------------------------------" + Environment.NewLine;
         }
 
-        private void SubStringSetter()
+        public void SubStringSetter()
         {
             SubMakerDisplay.Text = Environment.NewLine
                 + "Name : " + Form1.userInfo.UserName + Environment.NewLine

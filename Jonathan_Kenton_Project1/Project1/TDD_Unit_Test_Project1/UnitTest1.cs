@@ -9,6 +9,7 @@ namespace TDD_Unit_Test_Project1
     public class UnitTest1
     {
         Form1 F = new Form1();
+        SubMaker s = new SubMaker();
 
         [TestMethod]
         public void TestUserDeliveryInput()
@@ -30,14 +31,9 @@ namespace TDD_Unit_Test_Project1
 
             bool KidSize = true, SixIn = true, EightIn = true, TwelveIn = true;
 
-            if (SubMaker.CheckIfAnySubSizeSelected(KidSize, SixIn, EightIn, TwelveIn))
-            {
-                
-            }
-            else
-            {
-                
-            }
+            SubMaker.CheckIfAnySubSizeSelected(KidSize, SixIn, EightIn, TwelveIn);
+
+            
 
             Assert.AreEqual(SubSizeSelected, true);
         }
